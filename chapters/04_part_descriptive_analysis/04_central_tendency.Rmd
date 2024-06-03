@@ -101,7 +101,7 @@ height_and_weight_20 <- tribble(
 
 👆 **Here's what we did above:**
 
-* We loaded the `tibble` package so that we could use its `tribble()` function.    
+* We loaded the `dplyr` package so that we could use its `tribble()` function.    
 
 * We used the `tribble()` function to simulate some data -- heights and weights for 20 hypothetical students.
   
@@ -250,7 +250,7 @@ But, what happens when our vector has a missing value?
 mean(c(1, NA, 3))
 ```
 
-As you can see, the `mean()` function returns `NA` by default when we pass it a numeric vector that contains a missing value. It took me a little while to wrap my head around why this is the case when I was a student. Perhaps some of you are confused as well. The logic goes something like this. In R, an `NA` doesn't represent the _absence_ of a value -- a value that doesn't exist at all; rather, it represents a value that does exist, but is _unknown_ to us. So, if I ask you to tell me the mean of a set of numbers that contains 1, some unknown number, and 3 what would your answer be? Well, you can't just give me the mean of 1 and 2. That would imply that the unknown number doesn't exist. Further, you can't really give me _any_ numeric answer because that answer will depend on the value of the missing number. So, the only logical answer to give me is something like "I don't know" or "it depends." 🤷 That is essentially what R is telling us when it returns an `NA`.
+As you can see, the `mean()` function returns `NA` by default when we pass it a numeric vector that contains a missing value. It took me a little while to wrap my head around why this is the case when I was a student. Perhaps some of you are confused as well. The logic goes something like this. In R, an `NA` doesn't represent the _absence_ of a value -- a value that doesn't exist at all; rather, it represents a value that does exist, but is _unknown_ to us. So, if I ask you to tell me the mean of a set of numbers that contains 1, some unknown number, and 3 what would your answer be? Well, you can't just give me the mean of 1 and 3. That would imply that the unknown number doesn't exist. Further, you can't really give me _any_ numeric answer because that answer will depend on the value of the missing number. So, the only logical answer to give me is something like "I don't know" or "it depends." 🤷 That is essentially what R is telling us when it returns an `NA`.
 
 While this answer is technically correct, it usually isn't very satisfying to us. Instead, we often want R to calculate the mean of the numbers that remain after all missing values are removed from the original set. The implicit assumption is that the mean of that reduced set of numbers will be "close enough" to the mean of the original set of numbers for our purposes. We can ask R to do this by changing the value of the `na.rm` argument from `FALSE` -- the default -- to `TRUE`. 
 
